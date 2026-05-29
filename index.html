@@ -165,7 +165,35 @@ section{padding:100px 0}
 
 /* ── ABOUT ── */
 .about{background:var(--cream)}
-.about .container{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
+.about .container{display:flex;flex-direction:column;gap:48px}
+
+/* Hero text wrapper — contiene heroText + aboutInline */
+.hero-text-wrapper{position:relative;overflow:hidden}
+.about-inline{
+  position:absolute;top:0;left:0;right:0;
+  will-change:transform;
+}
+.about-inline .section-label{
+  font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--aqua-dark);margin-bottom:14px;
+}
+.about-inline .section-title{
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.15;
+  color:var(--purple-deep);margin-bottom:20px;
+}
+.about-inline .desc{
+  font-size:.95rem;line-height:1.8;color:var(--text-mid);font-weight:300;
+  margin-bottom:16px;
+}
+
+/* Video full-width en sección about */
+.about-video-full{
+  width:100%;aspect-ratio:16/9;border-radius:20px;
+  background:linear-gradient(135deg,var(--purple-deep) 0%,var(--purple-light) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  position:relative;overflow:hidden;
+}
 .about-visual{position:relative}
 .about-img{
   width:100%;aspect-ratio:4/5;border-radius:24px;
@@ -303,8 +331,9 @@ section{padding:100px 0}
 .journey-header .section-subtitle{margin:0 auto}
 
 .journey-steps{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
   position:relative;
+  max-width:600px;margin:0 auto;
 }
 .journey-steps::before{
   content:'';position:absolute;top:48px;left:12.5%;right:12.5%;
@@ -530,44 +559,58 @@ footer .container{display:flex;justify-content:space-between;align-items:center;
 <section class="hero-scroll-container" id="hero">
   <div class="hero-sticky">
     <div class="container">
-      <div class="hero-text">
-        <p class="tagline">Psicoeducación clínica vincular</p>
-        <h1>La verdadera<br>salida es<br>hacia <em>adentro</em></h1>
-        <p class="subtitle">No estás rota, estás programada a obedecer un mandato familiar. Si no sabes cómo poner <strong>límites</strong>, aquí empieza tu <strong>despertar</strong>: sin <strong>filtros</strong>, sin <strong>anestesia</strong>.</p>
-        <div class="hero-buttons">
-          <a href="#guia" class="btn-primary">
-            Descarga tu regalo de sanación
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#about" class="btn-secondary">Conoce a Viviana</a>
+      <div class="hero-text-wrapper">
+        <div class="hero-text" id="heroText">
+          <p class="tagline">Psicoeducación clínica vincular</p>
+          <h1>La verdadera<br>salida es<br>hacia <em>adentro</em></h1>
+          <p class="subtitle">No estás rota, estás programada a obedecer un mandato familiar. Si no sabes cómo poner <strong>límites</strong>, aquí empieza tu <strong>despertar</strong>: sin <strong>filtros</strong>, sin <strong>anestesia</strong>.</p>
+          <div class="hero-buttons">
+            <a href="#guia" class="btn-primary">
+              Descarga tu regalo de sanación
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#about" class="btn-secondary">Conoce a Viviana</a>
+          </div>
+        </div>
+        <div class="about-inline" id="aboutInline">
+          <p class="section-label">Sobre Viviana</p>
+          <h2 class="section-title">La verdad clínica que<br>necesitas para despertar</h2>
+          <p class="desc">Soy Viviana Rojo Sitton, psicoterapeuta especialista en vínculos traumáticos, apego desorganizado y sanación vincular. He acompañado a cientos de personas atrapadas en relaciones que les arrebatan la identidad.</p>
+          <p class="desc">Aquí no encontrarás frases bonitas ni consejos motivacionales. Encontrarás la verdad clínica — porque la mente intenta olvidar lo que el cuerpo insiste en recordar.</p>
+          <div class="about-values">
+            <button class="about-value" data-modal="vinculo"><span class="dot"></span>¿Qué es un vínculo traumático?</button>
+            <button class="about-value" data-modal="apego"><span class="dot"></span>¿Apegos tóxicos?</button>
+            <button class="about-value" data-modal="somatica"><span class="dot"></span>Regulación somática</button>
+            <button class="about-value" data-modal="roca"><span class="dot"></span>Mujer Roca</button>
+          </div>
         </div>
       </div>
       <div class="hero-visual">
         <div class="hero-frames">
-          <img src="Video_Frames/video-frame1ok.png"  alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame2ok.png"  alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame3ok.png"  alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame4ok.png"  alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame5ok.png"  alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame6ok.png"  alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame7ok.png"  alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame8ok.png"  alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame9ok.png"  alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame10ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame11ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame12ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame13ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame14ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame15ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame16ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame17ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame18ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame19ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame20ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame21ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame22ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame23ok.png" alt="" class="scroll-frame">
-          <img src="Video_Frames/video-frame24ok.png" alt="" class="scroll-frame">
+          <img src="Video_Frames/video-frame1ok.png"  alt="" class="scroll-frame" fetchpriority="high">
+          <img src="Video_Frames/video-frame2ok.png"  alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame3ok.png"  alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame4ok.png"  alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame5ok.png"  alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame6ok.png"  alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame7ok.png"  alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame8ok.png"  alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame9ok.png"  alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame10ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame11ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame12ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame13ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame14ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame15ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame16ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame17ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame18ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame19ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame20ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame21ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame22ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame23ok.png" alt="" class="scroll-frame" decoding="async">
+          <img src="Video_Frames/video-frame24ok.png" alt="" class="scroll-frame" decoding="async">
         </div>
       </div>
     </div>
@@ -577,37 +620,11 @@ footer .container{display:flex;justify-content:space-between;align-items:center;
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="container">
-    <div class="about-visual reveal">
-      <div class="about-img">
-        <div class="video-play">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <span class="video-label">Video próximamente</span>
+    <div class="about-video-full reveal">
+      <div class="video-play">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
       </div>
-      <div class="about-stat">
-        <div class="number">+20</div>
-        <div class="label">Años de práctica clínica</div>
-      </div>
-    </div>
-    <div class="about-content">
-      <p class="section-label reveal">Sobre Viviana</p>
-      <h2 class="section-title reveal reveal-delay-1">La verdad clínica que<br>necesitas para despertar</h2>
-      <p class="desc reveal reveal-delay-2">Soy Viviana Rojo Sitton, psicoterapeuta especialista en vínculos traumáticos, apego desorganizado y sanación vincular. He acompañado a cientos de personas atrapadas en relaciones que les arrebatan la identidad.</p>
-      <p class="desc reveal reveal-delay-2">Aquí no encontrarás frases bonitas ni consejos motivacionales. Encontrarás la verdad clínica — porque la mente intenta olvidar lo que el cuerpo insiste en recordar.</p>
-      <div class="about-values reveal reveal-delay-3">
-        <button class="about-value" data-modal="vinculo">
-          <span class="dot"></span>¿Qué es un vínculo traumático?
-        </button>
-        <button class="about-value" data-modal="apego">
-          <span class="dot"></span>¿Apegos tóxicos?
-        </button>
-        <button class="about-value" data-modal="somatica">
-          <span class="dot"></span>Regulación somática
-        </button>
-        <button class="about-value" data-modal="roca">
-          <span class="dot"></span>Mujer Roca
-        </button>
-      </div>
+      <span class="video-label">Video próximamente</span>
     </div>
   </div>
 </section>
@@ -827,25 +844,54 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 reveals.forEach(el => observer.observe(el));
 
-// Hero scroll frames — corte directo por frame
+// Hero scroll frames + transición de texto
 (function(){
-  var container = document.querySelector('.hero-scroll-container');
-  var frames = document.querySelectorAll('.scroll-frame');
+  var container  = document.querySelector('.hero-scroll-container');
+  var frames     = document.querySelectorAll('.scroll-frame');
+  var heroText   = document.getElementById('heroText');
+  var aboutInline= document.getElementById('aboutInline');
   if (!container || !frames.length) return;
+
   var current = -1;
   frames[0].style.opacity = 1;
-  function update() {
-    var scrolled = window.pageYOffset - container.offsetTop;
-    var maxScroll = container.offsetHeight - window.innerHeight;
-    var progress = maxScroll > 0 ? Math.max(0, Math.min(1, scrolled / maxScroll)) : 0;
-    var idx = Math.min(Math.floor(progress * frames.length), frames.length - 1);
-    if (idx === current) return;
-    if (current >= 0) frames[current].style.opacity = 0;
-    frames[idx].style.opacity = 1;
-    current = idx;
+
+  // Posiciona aboutInline justo debajo de heroText (sin overlap)
+  function placeInline() {
+    if (heroText && aboutInline) {
+      aboutInline.style.transform = 'translateY(' + heroText.offsetHeight + 'px)';
+    }
   }
+  placeInline();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function(){ placeInline(); update(); });
+  }
+
+  function update() {
+    try {
+      var scrolled  = window.pageYOffset - container.offsetTop;
+      var maxScroll = container.offsetHeight - window.innerHeight;
+      var progress  = maxScroll > 0 ? Math.max(0, Math.min(1, scrolled / maxScroll)) : 0;
+
+      // Frames — corte directo, sin fade
+      var idx = Math.min(Math.floor(progress * frames.length), frames.length - 1);
+      if (idx !== current) {
+        if (current >= 0) frames[current].style.opacity = 0;
+        frames[idx].style.opacity = 1;
+        current = idx;
+      }
+
+      // Textos — scroll natural, sin overlap, sin fade
+      if (heroText && aboutInline) {
+        var h     = heroText.offsetHeight;
+        var shift = h * progress;
+        heroText.style.transform    = 'translateY(' + (-shift) + 'px)';
+        aboutInline.style.transform = 'translateY(' + (h - shift) + 'px)';
+      }
+    } catch(e) { /* no romper la animación */ }
+  }
+
   window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update, { passive: true });
+  window.addEventListener('resize', function(){ current = -1; placeInline(); update(); }, { passive: true });
   update();
 })();
 
